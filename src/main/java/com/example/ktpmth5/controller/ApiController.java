@@ -96,7 +96,16 @@ public class ApiController {
         return "Tổng số " + soLoaiMayBay + " máy bay Boeing";
     }
 
-    
+    //Cau 8
+    @RequestMapping(value = "/cau8", method = RequestMethod.GET)
+    public String tongSoLuongNhanVien() {
+        int soLuong = nhanVienRepository.tinhTongLuong();
+        if (soLuong == 0) {
+            ResponseEntity.notFound().build();
+        }
+        return "số lương các nhân viên" + soLuong;
+    }
+
 
 
 
