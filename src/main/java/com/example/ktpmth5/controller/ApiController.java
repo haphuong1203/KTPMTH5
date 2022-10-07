@@ -56,7 +56,16 @@ public class ApiController {
         return nhanViens;
     }
 
-   
+    //Cau 4
+    @RequestMapping(value = "/cau4", method = RequestMethod.GET)
+    public List<ChuyenBay> timChuyenBayBoiDoDai() {
+        List<ChuyenBay> chuyenBays = chuyenBayRepository.findChuyenBayByDoDai();
+        if (chuyenBays == null) {
+            ResponseEntity.notFound().build();
+        }
+        return chuyenBays;
+    }
+
     //Cau 5
     @RequestMapping(value = "/cau5", method = RequestMethod.GET)
     public List<ChuyenBay> timChuyenBayBoiGaDenVaGaDi() {
@@ -66,6 +75,17 @@ public class ApiController {
         }
         return chuyenBays;
     }
+
+    //Cau 6
+    @RequestMapping(value = "/cau6/{gaDi}", method = RequestMethod.GET)
+    public String soChuyenBayXuatPhatTuSaiGon(@PathVariable("gaDi") String gaDi) {
+        int soChuyenBay = chuyenBayRepository.findChuyenBayByGaDi(gaDi);
+        if (soChuyenBay == 0) {
+            ResponseEntity.notFound().build();
+        }
+        return "Có " + soChuyenBay + " chuyến bay xuất phát từ Sài Gòn";
+    }
+
 
 
 
