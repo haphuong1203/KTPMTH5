@@ -56,16 +56,7 @@ public class ApiController {
         return nhanViens;
     }
 
-    //Cau 4
-    @RequestMapping(value = "/cau4", method = RequestMethod.GET)
-    public List<ChuyenBay> timChuyenBayBoiDoDai() {
-        List<ChuyenBay> chuyenBays = chuyenBayRepository.findChuyenBayByDoDai();
-        if (chuyenBays == null) {
-            ResponseEntity.notFound().build();
-        }
-        return chuyenBays;
-    }
-
+   
     //Cau 5
     @RequestMapping(value = "/cau5", method = RequestMethod.GET)
     public List<ChuyenBay> timChuyenBayBoiGaDenVaGaDi() {
