@@ -106,6 +106,25 @@ public class ApiController {
         return "số lương các nhân viên" + soLuong;
     }
 
+    //Cau 9
+    @RequestMapping(value = "/cau9", method = RequestMethod.GET)
+    public List<String> maNhanVienLaiMayBayBoeing() {
+        List<String> maNhanViens = nhanVienRepository.getMaByLoaiMayBay();
+        if (maNhanViens == null) {
+            ResponseEntity.notFound().build();
+        }
+        return maNhanViens;
+    }
+
+    //Cau 10
+    @RequestMapping(value = "/cau10/{maMB}", method = RequestMethod.GET)
+    public List<NhanVien> nhanVienLaiMayBay747(@PathVariable("maMB") int maMB) {
+        List<NhanVien> nhanViens = nhanVienRepository.findNhanVienByMaMB(maMB);
+        if (nhanViens == null) {
+            ResponseEntity.notFound().build();
+        }
+        return nhanViens;
+    }
 
 
 
