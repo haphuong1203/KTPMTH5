@@ -126,6 +126,24 @@ public class ApiController {
         return nhanViens;
     }
 
+    //Cau 12
+    @RequestMapping(value = "/cau12", method = RequestMethod.GET)
+    public List<String> maPhiCongVuaLaiBoeingVuaLaiAirbus() {
+        List<String> maPhiCongs = nhanVienRepository.getMaByLoaiMB();
+        if (maPhiCongs == null) {
+            ResponseEntity.notFound().build();
+        }
+        return maPhiCongs;
+    }
+
+    @RequestMapping(value = "/cau15", method = RequestMethod.GET)
+    public List<String> phiCongLaiMayBayBoeing() {
+        List<String> tenPhiCongs = nhanVienRepository.findTenNhanVienLaiBoeing();
+        if (tenPhiCongs == null) {
+            ResponseEntity.notFound().build();
+        }
+        return tenPhiCongs;
+    }
 
 
 
